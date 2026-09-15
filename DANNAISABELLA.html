@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danna Isabella | 2 años · Invitación de cuento</title>
+    <meta
+      name="description"
+      content="La historia de Danna Isabella: un cuento de hadas que cobra vida."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Great+Vibes&family=Quicksand:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; }
+      body {
+        height: 100dvh;
+        overflow: hidden;
+        font-family: 'Cormorant Garamond', serif;
+        color: #45261c;
+        background:
+          radial-gradient(circle at 50% 108%, rgba(110, 55, 130, 0.5), transparent 55%),
+          radial-gradient(circle at 12% 88%, rgba(40, 120, 105, 0.22), transparent 34%),
+          radial-gradient(circle at 90% 12%, rgba(190, 130, 210, 0.25), transparent 36%),
+          linear-gradient(180deg, #170b28 0%, #2a1140 48%, #3a1650 100%);
+      }
+      button, a { font-family: inherit; }
+
+      .stars {
+        position: fixed; inset: 0; z-index: 0; pointer-events: none;
+        background:
+          radial-gradient(1.6px 1.6px at 12% 20%, rgba(255, 220, 130, 0.95), transparent),
+          radial-gradient(2px 2px at 68% 12%, rgba(200, 170, 255, 0.9), transparent),
+          radial-gradient(1.4px 1.4px at 40% 64%, rgba(255, 220, 130, 0.8), transparent),
+          radial-gradient(2px 2px at 86% 54%, rgba(255, 180, 210, 0.85), transparent),
+          radial-gradient(1.5px 1.5px at 26% 82%, rgba(255, 220, 130, 0.8), transparent),
+          radial-gradient(2px 2px at 58% 38%, rgba(210, 180, 255, 0.7), transparent),
+          radial-gradient(1.4px 1.4px at 74% 86%, rgba(255, 220, 130, 0.75), transparent);
+        background-size: 300px 300px;
+        opacity: 0.9;
+        animation: starDrift 34s linear infinite;
+      }
+      @keyframes starDrift { to { background-position: 300px 300px; } }
+
+      .rays {
+        position: fixed; left: 50%; top: 52%;
+        width: 150vmax; height: 150vmax;
+        transform: translate(-50%, -50%);
+        z-index: 1; pointer-events: none; opacity: 0.55;
+        background: conic-gradient(
+          from 0deg at 50% 50%,
+          transparent 0deg, rgba(255, 190, 240, 0.12) 18deg, transparent 44deg,
+          rgba(255, 205, 160, 0.13) 72deg, transparent 104deg,
+          rgba(200, 180, 255, 0.12) 148deg, transparent 186deg,
+          rgba(255, 190, 240, 0.12) 224deg, transparent 260deg,
+          rgba(255, 205, 160, 0.13) 300deg, transparent 340deg,
+          rgba(255, 190, 240, 0.12) 360deg);
+        animation: raySpin 40s linear infinite;
+      }
+      @keyframes raySpin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+      /* ---------- SCENE 1: BIG FAIRYTALE CASTLE ---------- */
+      .scene-castle {
+        position: fixed; inset: 0; z-index: 5;
+        transition: opacity 0.9s ease;
+      }
+      .scene-castle .inner {
+        position: absolute; inset: 0;
+        will-change: transform, filter;
+      }
+      .scene-castle svg { width: 100%; height: 100%; display: block; }
+
+      .open-hint {
+        position: absolute; left: 50%; top: 16%;
+        transform: translateX(-50%) translateY(12px);
+        z-index: 6; cursor: pointer;
+        opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(0.95rem, 2.6vw, 1.3rem);
+        letter-spacing: 0.06em; color: #fff8ea;
+        background: linear-gradient(120deg, rgba(122, 47, 82, 0.92), rgba(156, 60, 99, 0.92));
+        border: 1.5px solid rgba(255, 224, 150, 0.85);
+        border-radius: 999px;
+        padding: 10px 24px;
+        box-shadow: 0 6px 18px rgba(40, 10, 30, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        -webkit-tap-highlight-color: transparent;
+      }
+      .open-hint.on {
+        opacity: 1; transform: translateX(-50%) translateY(0);
+        animation: hintPulse 2.2s ease-in-out infinite;
+      }
+      .open-hint:hover { background: linear-gradient(120deg, rgba(156, 60, 99, 0.98), rgba(190, 76, 120, 0.98)); }
+      @keyframes hintPulse {
+        0%, 100% { box-shadow: 0 6px 18px rgba(40, 10, 30, 0.4); transform: translateX(-50%) translateY(0) scale(1); }
+        50% { box-shadow: 0 6px 26px rgba(255, 190, 110, 0.55); transform: translateX(-50%) translateY(0) scale(1.035); }
+      }
+
+      .castle-float { animation: castleBob 6.5s ease-in-out infinite; }
+      @keyframes castleBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+      .puff { animation: cloudDrift 9s ease-in-out infinite alternate; transform-box: fill-box; }
+      .puff.p2 { animation-duration: 12s; animation-direction: alternate-reverse; }
+      .puff.p3 { animation-duration: 15s; }
+      @keyframes cloudDrift { from { transform: translateX(-20px); } to { transform: translateX(20px); } }
+      .sway { animation: flowerSway 5s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: 50% 100%; }
+      .sway.s2 { animation-duration: 6.4s; animation-delay: -2s; }
+      .sway.s3 { animation-duration: 7s; animation-delay: -4s; }
+      @keyframes flowerSway { from { transform: rotate(-2.4deg); } to { transform: rotate(2.4deg); } }
+      .bfly { animation: flutter 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+      .bfly.b2 { animation-duration: 8s; animation-delay: -3s; }
+      @keyframes flutter {
+        0%,100% { transform: translate(0,0) rotate(-6deg); }
+        50% { transform: translate(14px,-12px) rotate(10deg); }
+      }
+      .twinkle { animation: twinkle 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+      .twinkle.t2 { animation-delay: -1.4s; }
+      @keyframes twinkle { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+      /* ---------- TRANSITION MIST ---------- */
+      .mist {
+        position: fixed; inset: 0; z-index: 30; pointer-events: none; opacity: 0;
+        background:
+          radial-gradient(circle at 50% 50%, rgba(255, 250, 240, 0.98), rgba(255, 244, 226, 0.6) 45%, rgba(255, 240, 220, 0) 75%);
+      }
+      .mist.on { opacity: 1; }
+
+      /* ---------- SCENE 2: STORYBOOK ---------- */
+      .stage-book {
+        position: fixed; inset: 0; z-index: 10;
+        display: grid; place-items: center;
+        opacity: 0; visibility: hidden;
+        transition: opacity 1s ease, visibility 1s;
+        background:
+          radial-gradient(circle at 50% 30%, rgba(220, 160, 120, 0.16), transparent 42%),
+          radial-gradient(circle at 50% 88%, rgba(120, 60, 130, 0.42), transparent 56%);
+      }
+      .stage-book.on { opacity: 1; visibility: visible; }
+      .book-wrap {
+        grid-area: 1 / 1;
+        width: min(980px, 96vw);
+        perspective: 2200px;
+        perspective-origin: 50% 42%;
+        will-change: transform;
+      }
+      .book {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        max-height: 84vh;
+        transform-style: preserve-3d;
+        will-change: transform, filter;
+      }
+      .book.floaty { animation: bookBob 6s ease-in-out infinite; }
+      @keyframes bookBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+      .book-glow {
+        grid-area: 1 / 1; z-index: 0; pointer-events: none;
+        width: 120%; height: 150%;
+        background: radial-gradient(circle, rgba(255, 214, 130, 0.32), rgba(255, 190, 160, 0.12) 42%, transparent 68%);
+        animation: glowPulse 4.5s ease-in-out infinite;
+      }
+      @keyframes glowPulse {
+        0%,100% { opacity: 0.75; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.08); }
+      }
+
+      .half { position: absolute; top: 0; height: 100%; width: 50%; backface-visibility: hidden; will-change: transform; }
+      #halfL { left: 0; transform-origin: 100% 50%; }
+      #halfR { right: 0; transform-origin: 0% 50%; }
+
+      /* ---------- PAGES ---------- */
+      :root { --gold: rgba(176, 124, 40, 0.75); --goldline: rgba(190, 140, 60, 0.4); }
+      .pg {
+        position: absolute; inset: 0; overflow: hidden;
+        background:
+          radial-gradient(circle at 22% 12%, rgba(255, 255, 255, 0.6), transparent 36%),
+          radial-gradient(circle at 80% 90%, rgba(120, 84, 48, 0.16), transparent 46%),
+          repeating-linear-gradient(94deg, rgba(120, 90, 40, 0.015) 0 1px, transparent 1px 3px),
+          repeating-linear-gradient(88deg, rgba(120, 90, 40, 0.01) 0 2px, transparent 2px 5px),
+          linear-gradient(178deg, #fdf7e7 0%, #f5e9ce 60%, #eedfbe 100%);
+        box-shadow:
+          inset 0 0 0 1px rgba(190, 140, 60, 0.25),
+          inset 0 0 60px rgba(110, 66, 30, 0.14),
+          0 1.5px 0 rgba(110, 80, 35, 0.12),
+          0 3px 0 rgba(110, 80, 35, 0.09),
+          0 5px 0 rgba(110, 80, 35, 0.07),
+          0 7px 0 rgba(110, 80, 35, 0.06),
+          0 12px 0 rgba(110, 80, 35, 0.03),
+          0 20px 48px rgba(16, 6, 26, 0.6);
+      }
+      .pg::before, .pg::after {
+        content: ""; position: absolute; width: 52px; height: 52px; z-index: 3;
+        border-style: solid; border-color: rgba(190, 140, 60, 0.55);
+        box-shadow: inset 0 0 0 2px rgba(255, 244, 210, 0.55);
+      }
+      .pg::before { top: 10px; left: 10px; border-width: 2.5px 0 0 2.5px; }
+      .pg::after { top: 10px; right: 10px; border-width: 2.5px 2.5px 0 0; }
+      .cb {
+        position: absolute; bottom: 10px; width: 52px; height: 52px;
+        border-style: solid; border-color: rgba(190, 140, 60, 0.55);
+        box-shadow: inset 0 0 0 2px rgba(255, 244, 210, 0.55);
+        z-index: 3; pointer-events: none;
+      }
+      .cb { left: 10px; border-width: 0 0 2.5px 2.5px; }
+      .cb.r { right: 10px; border-width: 0 2.5px 2.5px 0; left: auto; }
+      .pg-bd {
+        position: absolute; inset: 13px;
+        border: 1px solid rgba(190, 140, 60, 0.35);
+        pointer-events: none; z-index: 2;
+      }
+      .pg-bd::after {
+        content: ""; position: absolute; inset: 4px;
+        border: 1px dotted rgba(190, 140, 60, 0.5);
+      }
+      .pg-inner {
+        position: absolute; inset: 26px 20px 24px 20px;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        text-align: center; gap: 10px; z-index: 4;
+        isolation: isolate;
+      }
+
+      .crown-wrap svg { width: 46px; height: auto; filter: drop-shadow(0 2px 5px rgba(160, 110, 20, 0.45)); }
+      .nm { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+      .nm span { display: block; }
+      .nm .danna {
+        font-family: 'Cormorant Garamond', serif; font-weight: 700;
+        font-size: clamp(1rem, 3.5vw, 1.8rem);
+        letter-spacing: 0.46em; text-indent: 0.46em; text-transform: uppercase;
+        color: transparent;
+        background: linear-gradient(180deg, #b0562f 0%, #c74f5d 45%, #8f173d 100%);
+        -webkit-background-clip: text; background-clip: text;
+        filter: drop-shadow(0 1px 0 rgba(255, 250, 225, 0.85)) drop-shadow(0 2px 5px rgba(120, 30, 70, 0.28));
+      }
+      .nm .isabella {
+        font-family: 'Great Vibes', cursive; font-weight: 400;
+        font-size: clamp(2.3rem, 7.6vw, 4.4rem);
+        line-height: 1.05; letter-spacing: 0.02em;
+        color: transparent;
+        background: linear-gradient(180deg, #a17808 0%, #d9a440 40%, #8a5f14 80%, #b07c28 100%);
+        -webkit-background-clip: text; background-clip: text;
+        filter: drop-shadow(0 1px 0 rgba(255, 250, 225, 0.9)) drop-shadow(0 3px 6px rgba(90, 55, 10, 0.32));
+        margin-top: -8px;
+      }
+      .rule-orn {
+        display: flex; align-items: center; gap: 9px; color: #c98a48; margin-top: 4px;
+      }
+      .rule-orn::before, .rule-orn::after {
+        content: ""; width: 32px; height: 1px;
+      }
+      .rule-orn::before { background: linear-gradient(90deg, transparent, #caa04a); }
+      .rule-orn::after { background: linear-gradient(90deg, #caa04a, transparent); }
+      .age {
+        font-family: 'Cinzel', serif; font-weight: 800;
+        font-size: clamp(1.25rem, 4vw, 2.1rem);
+        letter-spacing: 0.5em; text-indent: 0.5em;
+        color: transparent;
+        background: linear-gradient(180deg, #9c1f4a 0%, #c74f7b 40%, #8a1740 100%);
+        -webkit-background-clip: text; background-clip: text;
+        filter: drop-shadow(0 1px 0 rgba(255, 250, 225, 0.9)) drop-shadow(0 2px 5px rgba(120, 30, 70, 0.3));
+      }
+
+      .kick {
+        font-family: 'Cinzel', serif; font-weight: 600; letter-spacing: 0.4em; text-indent: 0.4em;
+        font-size: clamp(0.6rem, 1.7vw, 0.8rem); color: #9a6a35;
+      }
+      .mini-orn { font-size: 0.9rem; color: #c98a48; letter-spacing: 0.4em; text-indent: 0.4em; }
+
+      .p-deco { background-color: #f8efd8; }
+      .deco-art { width: 74%; max-width: 300px; }
+      .pg-img {
+        width: min(86%, 300px);
+        height: auto;
+        max-height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 6px 14px rgba(60, 20, 45, 0.28));
+      }
+      .p-deco-right { background-color: #fcf6e6; }
+
+      /* ---------- COVERS ---------- */
+      .cover {
+        position: absolute; top: -8px; height: calc(100% + 16px); width: 50%;
+        z-index: 8; border-radius: 6px;
+        background:
+          radial-gradient(circle at 30% 18%, rgba(210, 245, 228, 0.16), transparent 34%),
+          radial-gradient(circle at 70% 88%, rgba(0, 0, 0, 0.4), transparent 50%),
+          linear-gradient(150deg, #1d5a42 0%, #11412f 52%, #0b2f22 100%);
+        box-shadow:
+          inset 0 0 0 2px #f2cf86,
+inset 0 0 0 2px #d9b96a,
+          inset 0 0 0 5px rgba(255, 235, 180, 0.18),
+          inset 0 0 0 13px #d9b96a,
+          inset 0 0 34px rgba(0, 0, 0, 0.65),
+          0 18px 44px rgba(0, 0, 0, 0.55);
+        will-change: transform, opacity;
+      }
+      .cover .emb { position: absolute; inset: 15px; border: 2px solid rgba(217, 185, 106, 0.85); display: grid; place-items: center; }
+      .cover .emb::before {
+        content: ""; position: absolute; inset: 5px;
+        border: 1px dotted rgba(217, 185, 106, 0.55);
+      }
+      .cover .emb svg { width: 126px; height: 126px; }
+      .cover .band { position: absolute; left: 0; right: 0; height: 13px; background: linear-gradient(180deg, #f2cf86, #c7953a, #8a5f14); opacity: 0.85; }
+      .cover .band.t { top: 0; }
+      .cover .band.b { bottom: 0; }
+      .cover .crown-c { position: absolute; top: 26%; left: 50%; transform: translateX(-50%); }
+
+      /* ---------- FLIPPING SHEET ---------- */
+      .flip {
+        position: absolute; left: 50%; top: 0; width: 50%; height: 100%;
+        z-index: 12; opacity: 0; transform-origin: 0% 50%;
+        will-change: transform, opacity;
+      }
+      .flip-inner { position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
+      .f-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; overflow: hidden; }
+      .f-back { transform: rotateY(180deg); }
+      .flipShade {
+        position: absolute; inset: 0; z-index: 6; pointer-events: none; opacity: 0;
+        background: linear-gradient(105deg, rgba(255, 250, 236, 0.88) 0%, rgba(255, 250, 236, 0.1) 45%, rgba(40, 18, 12, 0.34) 100%);
+        will-change: opacity;
+      }
+      .castle-art-wrap { inset: 0 !important; position: absolute; }
+      .art-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+      .pg-full {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%;
+        object-fit: contain;
+      }
+
+      .gutter {
+        position: absolute; left: 50%; top: 3%; bottom: 3%; width: 10px;
+        transform: translateX(-50%); z-index: 7; pointer-events: none;
+        background: linear-gradient(90deg, rgba(70,45,18,0) 0%, rgba(70,45,18,0.38) 32%, rgba(90,58,24,0.5) 50%, rgba(70,45,18,0.38) 68%, rgba(70,45,18,0) 100%);
+        border-radius: 50%;
+      }
+      .shelf {
+        grid-area: 1 / 1; align-self: end; justify-self: center; margin-bottom: 4%;
+        width: 78%; height: 26px; pointer-events: none;
+        background: radial-gradient(50% 100% at 50% 0%, rgba(20, 6, 28, 0.5), transparent 100%);
+        filter: blur(3px);
+        animation: shadowBreath 5s ease-in-out infinite;
+      }
+      @keyframes shadowBreath { 0%,100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(0.94); opacity: 0.6; } }
+
+      /* ---------- MAGIC SCROLL ---------- */
+      .scroll {
+        position: fixed; left: 50%; top: 50%;
+        width: min(470px, 86vw);
+        z-index: 16;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        will-change: transform, opacity;
+      }
+      .scroll .roll {
+        position: absolute; left: -14px; right: -14px; height: 24px; pointer-events: none;
+        border-radius: 8px;
+        background: linear-gradient(180deg, #e7cf9c 0%, #cfa96a 35%, #b98a4d 60%, #d9bb86 100%);
+        box-shadow: 0 0 12px rgba(90, 55, 15, 0.4), inset 0 1px 0 rgba(255, 244, 214, 0.6);
+      }
+      .scroll .roll.t { top: -10px; }
+      .scroll .roll.b { bottom: -10px; }
+      .scroll .roll::after {
+        content: ""; position: absolute; left: 50%; top: 50%;
+        width: 10px; height: 10px; transform: translate(-50%, -50%) rotate(45deg);
+        background: radial-gradient(circle at 35% 35%, #d9bb86, #a5763c);
+        border-radius: 2px;
+      }
+      .scroll-body {
+        position: relative;
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.6), transparent 32%),
+          radial-gradient(circle at 50% 100%, rgba(120, 80, 30, 0.2), transparent 44%),
+          linear-gradient(180deg, #faf1d8 0%, #f3e2bd 60%, #ecd9ac 100%);
+        box-shadow:
+          inset 0 0 0 1.5px rgba(180, 140, 60, 0.4),
+          inset 0 0 0 6px rgba(180, 140, 60, 0.12),
+          inset 0 0 34px rgba(150, 100, 45, 0.3),
+          0 34px 70px rgba(15, 6, 25, 0.6);
+        padding: 34px 30px 44px;
+        text-align: center;
+        border-radius: 6px 6px 10px 10px;
+      }
+      .scroll-orn { position: absolute; width: 64px; height: 64px; opacity: 0.85; }
+      .scroll-orn.tl { top: -4px; left: -2px; }
+      .scroll-orn.tr { top: -4px; right: -2px; transform: scaleX(-1); }
+      .scroll-orn.bl { bottom: 10px; left: -2px; transform: scaleY(-1); }
+      .scroll-orn.br { bottom: 10px; right: -2px; transform: scale(-1); }
+      .scroll-orn img, .scroll-orn svg { width: 100%; height: 100%; }
+
+      .sc-item { opacity: 0; transform: translateY(8px); transition: opacity 0.8s ease, transform 0.8s ease; }
+      .sc-item.on { opacity: 1; transform: translateY(0); }
+      .sc-kick { font-family: 'Cinzel', serif; font-weight: 600; letter-spacing: 0.5em; text-indent: 0.5em; font-size: 0.66rem; color: #9a6a35; }
+      .sc-name {
+        font-family: 'Great Vibes', cursive;
+        color: #a13f66;
+        font-size: clamp(2.2rem, 7vw, 3.3rem);
+        line-height: 1; margin-top: 4px;
+        text-shadow: 0 3px 14px rgba(161, 63, 102, 0.32);
+      }
+      .sc-sub {
+        font-family: 'Cinzel', serif; font-weight: 700; color: #5a3a20;
+        font-size: clamp(1rem, 3.1vw, 1.45rem); letter-spacing: 0.12em;
+        margin-top: 6px;
+      }
+      .sc-sub b { color: #a13f66; }
+      .sc-date {
+        font-family: 'Cinzel', serif; font-weight: 700;
+        color: transparent;
+        background: linear-gradient(180deg, #a17808, #d9a440 45%, #8a5f14);
+        -webkit-background-clip: text; background-clip: text;
+        font-size: clamp(1.15rem, 3.4vw, 1.65rem); letter-spacing: 0.18em;
+        margin-top: 4px;
+        filter: drop-shadow(0 1px 0 rgba(255, 250, 225, 0.7));
+      }
+      .sc-div { display: flex; align-items: center; gap: 10px; justify-content: center; margin: 12px 0 2px; color: #c98a48; }
+      .sc-div::before, .sc-div::after { content: ""; width: 46px; height: 1px; }
+      .sc-div::before { background: linear-gradient(90deg, transparent, #caa04a); }
+      .sc-div::after { background: linear-gradient(90deg, #caa04a, transparent); }
+      .sc-loc-kick { font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: 0.4em; text-indent: 0.4em; font-size: 0.72rem; color: #7a5230; margin-top: 6px; }
+
+      .maps-btn {
+        display: inline-flex; align-items: center; gap: 8px;
+        margin-top: 12px;
+        padding: 12px 24px;
+        font-family: 'Quicksand', sans-serif; font-weight: 700;
+        font-size: 0.98rem; letter-spacing: 0.16em;
+        color: #fff8e8;
+        text-decoration: none;
+        background: linear-gradient(160deg, #c2596f 0%, #8e2f52 100%);
+        border: 2px solid #f2cf86;
+        border-radius: 40px;
+        box-shadow: 0 10px 22px rgba(110, 25, 60, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .maps-btn:hover, .maps-btn:focus-visible { transform: translateY(-2px) scale(1.03); box-shadow: 0 14px 28px rgba(110, 25, 60, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+      .maps-btn:active { transform: translateY(0) scale(0.98); }
+      .maps-btn .pin { font-size: 1.05rem; }
+      .sc-addr { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; color: #7a5230; font-size: clamp(0.82rem, 2.4vw, 1rem); margin-top: 12px; line-height: 1.35; }
+
+      /* ---------- PARTICLES ---------- */
+      #sparkles { position: fixed; inset: 0; z-index: 40; pointer-events: none; overflow: hidden; }
+      .dust {
+        position: absolute; border-radius: 50%;
+        background: radial-gradient(circle, #fff8e3, rgba(255, 205, 150, 0.7) 55%, transparent);
+        box-shadow: 0 0 8px 1px rgba(255, 226, 170, 0.7);
+        opacity: 0; animation: dustFloat 8s ease-in-out infinite;
+      }
+      @keyframes dustFloat {
+        0% { transform: translate(0, 30px) scale(0.4); opacity: 0; }
+        15% { opacity: 0.95; }
+        55% { opacity: 0.9; }
+        100% { transform: translate(26px, -160px) scale(1.05); opacity: 0; }
+      }
+      .firefly {
+        position: absolute; border-radius: 50%; width: 6px; height: 6px;
+        background: radial-gradient(circle, #fff7d6, #ffd060 60%, transparent);
+        box-shadow: 0 0 14px 3px rgba(255, 208, 96, 0.85);
+        opacity: 0; animation: fireflyMove 11s ease-in-out infinite;
+      }
+      @keyframes fireflyMove {
+        0%,100% { transform: translate(0,0); opacity: 0; }
+        12% { opacity: 0.95; transform: translate(30px,-46px); }
+        40% { opacity: 0.75; transform: translate(-24px,-96px); }
+        70% { opacity: 0.9; transform: translate(20px,-150px); }
+      }
+      .burst {
+        position: absolute; width: 5px; height: 5px; border-radius: 50%;
+        background: radial-gradient(circle, #fffdf2, #ffd78a 60%, transparent);
+        box-shadow: 0 0 10px 2px rgba(255, 220, 150, 0.8);
+        animation: burstFly 1.5s ease-out forwards;
+      }
+      @keyframes burstFly {
+        0% { transform: translate(-50%,-50%) scale(0.25) rotate(0deg); opacity: 1; }
+        100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0.9) rotate(40deg); opacity: 0; }
+      }
+
+      .vignette { position: fixed; inset: 0; z-index: 45; pointer-events: none; background: radial-gradient(circle at 50% 45%, transparent 52%, rgba(10, 4, 20, 0.55) 100%); }
+
+      .corner-btn {
+        position: fixed; z-index: 50;
+        width: 48px; height: 48px; border-radius: 50%;
+        display: grid; place-items: center;
+        background: linear-gradient(160deg, #6f3a57, #3a1c3a);
+        color: #ffe9b0; font-size: 1.15rem;
+        border: 2px solid rgba(255, 217, 119, 0.55);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+        cursor: pointer;
+        opacity: 0; pointer-events: none; transform: translateY(12px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .corner-btn.on { opacity: 1; pointer-events: auto; transform: translateY(0); }
+      .corner-btn.playing .note { animation: noteBounce 1s ease-in-out infinite; }
+      @keyframes noteBounce { 0%,100% { transform: scale(1) rotate(-8deg); } 50% { transform: scale(1.25) rotate(8deg); } }
+      #musicBtn { right: 16px; bottom: 16px; }
+      #replayBtn { right: 76px; bottom: 16px; font-size: 1.3rem; }
+
+      /* ---------- baby princess sprites ---------- */
+      #pr, #prhead { --hair: #7a4a2c; --bodice: #f2c14e; --dress: #f2c14e; --dress2: #d9a63c; --bow: #7a4a2c; }
+      .pr-row {
+        display: flex; align-items: flex-end; justify-content: center;
+        gap: 4px; margin-top: 14px;
+      }
+      .pr-row svg {
+        height: clamp(36px, 10vw, 54px); width: auto;
+        filter: drop-shadow(0 5px 10px rgba(120, 40, 60, 0.3));
+      }
+      .pr-tiny {
+        width: 26px; height: 26px; border-radius: 50%;
+        border: 1.5px solid rgba(242, 207, 134, 0.85);
+        background: rgba(43, 18, 38, 0.85);
+        display: grid; place-items: center;
+      }
+      .pr-tiny svg { width: 18px; height: 18px; }
+
+      /* ---------- silk bookmark ribbon ---------- */
+      .ribbon {
+        position: absolute; left: 50%; top: 100%;
+        width: 46px; height: 150px; z-index: 6; pointer-events: none;
+        background: linear-gradient(180deg, #7e2c46 0%, #5a1d32 100%);
+        border-left: 1px solid rgba(255, 224, 150, 0.5);
+        border-right: 1px solid rgba(255, 224, 150, 0.5);
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 56% 90%, 50% 100%, 44% 90%, 0 90%);
+        box-shadow: 0 14px 24px rgba(20, 6, 25, 0.5);
+        transform: translateX(-50%);
+        transform-origin: 50% 0;
+        animation: ribbonSway 5s ease-in-out infinite alternate;
+      }
+      @keyframes ribbonSway {
+        from { transform: translateX(-50%) rotate(-2.5deg); }
+        to { transform: translateX(-50%) rotate(2.5deg); }
+      }
+
+      /* ---------- scroll time line ---------- */
+      .sc-time {
+        font-family: 'Cinzel', serif; font-weight: 800;
+        color: transparent;
+        background: linear-gradient(180deg, #a17808, #d9a440 45%, #8a5f14);
+        -webkit-background-clip: text; background-clip: text;
+        font-size: clamp(1.1rem, 3.3vw, 1.6rem);
+        letter-spacing: 0.26em; text-indent: 0.26em;
+        margin-top: 4px;
+        filter: drop-shadow(0 1px 0 rgba(255, 250, 225, 0.7));
+      }
+
+      @media (max-width: 560px) {
+        .pg-inner { inset: 20px 12px 18px 12px; gap: 6px; }
+        .pg::before, .pg::after { width: 22px; height: 22px; top: 10px; }
+        .pg::before { left: 10px; } .pg::after { right: 10px; }
+        .cb { width: 22px; height: 22px; bottom: 10px; }
+        .cb { left: 10px; } .cb.r { right: 10px; }
+        .nm { letter-spacing: 0.05em; }
+        .scroll-body { padding: 30px 20px 40px; }
+        .scroll .roll { left: -10px; right: -10px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .dust, .firefly { animation: none; opacity: 0.4; }
+        .rays, .puff, .sway, .bfly, .twinkle, .castle-float, .floaty, .book-glow { animation-duration: 60s; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="stars" aria-hidden="true"></div>
+    <div class="rays" aria-hidden="true"></div>
+
+    <!-- ============ SCENE 1 : BIG FAIRYTALE CASTLE ============ -->
+    <div class="scene-castle" id="castleScene">
+      <div class="inner" id="castleInner">
+        <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="scSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#dbe9ff" />
+              <stop offset="0.42" stop-color="#ffe3f2" />
+              <stop offset="0.8" stop-color="#fff1dc" />
+              <stop offset="1" stop-color="#ffe9d0" />
+            </linearGradient>
+            <radialGradient id="scGlow" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#fff6e0" stop-opacity="0.95" />
+              <stop offset="1" stop-color="#ffd1ea" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="scWall" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fff7ec" />
+              <stop offset="0.55" stop-color="#fbebef" />
+              <stop offset="1" stop-color="#f2d7e4" />
+            </linearGradient>
+            <linearGradient id="scWallD" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f4e3ee" />
+              <stop offset="1" stop-color="#e6c6da" />
+            </linearGradient>
+            <linearGradient id="scRoof" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f0a3c4" />
+              <stop offset="0.55" stop-color="#d97fae" />
+              <stop offset="1" stop-color="#bd5f93" />
+            </linearGradient>
+            <linearGradient id="scRoofD" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#e18fb4" />
+              <stop offset="1" stop-color="#b75f8c" />
+            </linearGradient>
+            <linearGradient id="scGold" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffe9a8" />
+              <stop offset="0.5" stop-color="#efc24f" />
+              <stop offset="1" stop-color="#c78f2e" />
+            </linearGradient>
+            <linearGradient id="scGate" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffd98a" />
+              <stop offset="1" stop-color="#e89b45" />
+            </linearGradient>
+            <radialGradient id="scWin" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#fff7d7" stop-opacity="0.95" />
+              <stop offset="1" stop-color="#ffd36b" stop-opacity="0.75" />
+            </radialGradient>
+            <linearGradient id="scLeaf" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#86c98f" />
+              <stop offset="1" stop-color="#58a873" />
+            </linearGradient>
+
+            <g id="rose">
+              <g fill="#b7436e">
+                <circle cx="-4.4" cy="-3.2" r="4.4" />
+                <circle cx="4.4" cy="-3.2" r="4.4" />
+                <circle cx="-4.4" cy="3.2" r="4.4" />
+                <circle cx="4.4" cy="3.2" r="4.4" />
+              </g>
+              <circle r="4.8" fill="#c74f7b" />
+              <circle r="2.3" fill="#e684a3" />
+            </g>
+            <g id="rosebud">
+              <circle r="3.6" fill="#c74f7b" />
+              <path d="M-2.4,-2 C-3.4,-4.2 -1.2,-5 0,-4.2 M2.4,-2 C3.4,-4.2 1.2,-5 0,-4.2" stroke="#7cbb84" stroke-width="1.1" fill="none" />
+            </g>
+            <g id="leaf">
+              <path d="M0 0 C4 -6 4 -11 0 -13 C-4 -11 -4 -6 0 0 Z" fill="url(#scLeaf)" />
+            </g>
+            <g id="tree">
+              <rect x="-4" y="-2" width="8" height="24" rx="3" fill="#7a5036" />
+              <g fill="#f2a7c3">
+                <circle cx="-13" cy="-15" r="13.5" />
+                <circle cx="13" cy="-15" r="13.5" />
+                <circle cx="0" cy="-25" r="16" />
+              </g>
+              <g fill="#f8c6d8">
+                <circle cx="-6" cy="-21" r="6.5" />
+                <circle cx="8" cy="-16" r="6.5" />
+                <circle cx="0" cy="-8" r="5" />
+              </g>
+            </g>
+            <g id="bush">
+              <g fill="url(#scLeaf)">
+                <circle cx="-9" cy="0" r="10.5" />
+                <circle cx="9" cy="0" r="10.5" />
+                <circle cx="0" cy="-9" r="11.5" />
+              </g>
+              <g fill="#f2a7c3">
+                <circle cx="-5" cy="-3" r="2.6" />
+                <circle cx="5" cy="-5" r="2.3" />
+                <circle cx="0" cy="-8" r="2.6" />
+              </g>
+            </g>
+            <g id="bf">
+              <path d="M-7,-1 C-10,-9 -2,-10 0,-2 C2,-10 10,-9 7,-1 C10,2 5,3 0,1 C-5,3 -10,2 -7,-1 Z" fill="#f2a7c3" />
+              <rect x="-1.1" y="-1.2" width="2.2" height="7" rx="1.1" fill="#7a4a63" />
+            </g>
+            <g id="bf2">
+              <path d="M-6,-1 C-9,-8 -1.5,-9 0,-1.5 C1.5,-9 9,-8 6,-1 C8,1.5 4,2.5 0,0.5 C-4,2.5 -8,1.5 -6,-1 Z" fill="#9fcbe8" />
+              <rect x="-1" y="-1" width="2" height="6.5" rx="1" fill="#5a6786" />
+            </g>
+            <g id="sprk">
+              <path d="M0 -7 L1.6 -1.6 7 0 1.6 1.6 0 7 -1.6 1.6 -7 0 -1.6 -1.6 Z" fill="#ffe9a6" />
+            </g>
+            <g id="crown">
+              <path d="M0 -9 L3 -3 L6 -8 L9 -2 L8 0 H-8 L-9 -2 L-6 -8 L-3 -3 Z" fill="url(#scGold)" stroke="#c78f2e" stroke-width="1" />
+              <rect x="-8" y="0" width="16" height="3.2" rx="1.2" fill="url(#scGold)" stroke="#c78f2e" stroke-width="0.8" />
+              <circle cx="0" cy="-9" r="1.6" fill="#a13f66" />
+              <circle cx="-6" cy="-8" r="1.4" fill="#a13f66" />
+              <circle cx="6" cy="-8" r="1.4" fill="#a13f66" />
+            </g>
+          </defs>
+
+          <!-- sky + halo -->
+          <rect width="1200" height="700" fill="url(#scSky)" />
+          <circle cx="1115" cy="115" r="215" fill="url(#scGlow)" />
+          <circle cx="1115" cy="115" r="50" fill="#fff7e2" opacity="0.98" />
+
+          <!-- clouds -->
+          <g class="puff" fill="#ffffff" opacity="0.9">
+            <ellipse cx="240" cy="180" rx="90" ry="30" />
+            <ellipse cx="306" cy="158" rx="64" ry="26" />
+            <ellipse cx="368" cy="184" rx="76" ry="28" />
+          </g>
+          <g class="puff p2" fill="#ffffff" opacity="0.82">
+            <ellipse cx="760" cy="90" rx="96" ry="30" />
+            <ellipse cx="832" cy="68" rx="66" ry="25" />
+            <ellipse cx="898" cy="92" rx="76" ry="27" />
+          </g>
+          <g class="puff p3" fill="#ffffff" opacity="0.72">
+            <ellipse cx="60" cy="340" rx="84" ry="26" />
+            <ellipse cx="176" cy="362" rx="66" ry="24" />
+            <ellipse cx="1120" cy="350" rx="90" ry="27" />
+          </g>
+
+          <!-- distant hills -->
+          <path d="M0 460 C150 396 300 386 470 396 C640 386 780 392 950 388 C1070 386 1160 402 1200 420 L1200 700 L0 700 Z" fill="#d9bce8" opacity="0.5" />
+          <path d="M0 500 C200 444 380 436 570 442 C760 436 920 444 1200 470 L1200 700 L0 700 Z" fill="#e7c6d8" opacity="0.6" />
+
+          <!-- stars of the sky -->
+          <g class="twinkle">
+            <use href="#sprk" x="150" y="120" />
+            <use href="#sprk" x="420" y="70" />
+            <use href="#sprk" x="600" y="40" />
+            <use href="#sprk" x="990" y="200" />
+            <use href="#sprk" x="80" y="260" />
+          </g>
+          <g class="twinkle t2">
+            <use href="#sprk" x="300" y="250" />
+            <use href="#sprk" x="700" y="160" />
+            <use href="#sprk" x="880" y="60" />
+          </g>
+
+          <!-- ============ THE CASTLE ============ -->
+          <g class="castle-float">
+            <!-- outer towers L1 / R1 -->
+            <g>
+              <rect x="344" y="264" width="76" height="256" fill="url(#scWall)" stroke="#e0b463" stroke-width="2" />
+              <path d="M336,270 L382,184 L428,270 Z" fill="url(#scRoof)" stroke="#cf7aa6" stroke-width="2" />
+              <rect x="344" y="272" width="76" height="7" fill="url(#scGold)" opacity="0.9" />
+              <circle cx="382" cy="330" r="9" fill="url(#scWin)" stroke="#e0b463" stroke-width="2.5" />
+              <path d="M374,404 L374,382 a8,8 0 0 1 16,0 L390,404 Z" fill="url(#scWin)" stroke="#e0b463" stroke-width="2" />
+              <rect x="352" y="470" width="60" height="5" fill="url(#scGold)" opacity="0.75" />
+              <path d="M382 184 V160" stroke="#c78f2e" stroke-width="3" />
+              <path d="M382 160 L400 170 L382 180 Z" fill="#ff8fb3" />
+            </g>
+            <g>
+              <rect x="780" y="264" width="76" height="256" fill="url(#scWall)" stroke="#e0b463" stroke-width="2" />
+              <path d="M772,270 L818,184 L884,270 Z" fill="url(#scRoof)" stroke="#cf7aa6" stroke-width="2" />
+              <rect x="780" y="272" width="76" height="7" fill="url(#scGold)" opacity="0.9" />
+              <circle cx="818" cy="330" r="9" fill="url(#scWin)" stroke="#e0b463" stroke-width="2.5" />
+              <path d="M806,404 L806,382 a8,8 0 0 1 16,0 L822,404 Z" fill="url(#scWin)" stroke="#e0b463" stroke-width="2" />
+              <rect x="788" y="470" width="60" height="5" fill="url(#scGold)" opacity="0.75" />
+              <path d="M818 184 V160" stroke="#c78f2e" stroke-width="3" />
+              <path d="M818 160 L836 170 L818 180 Z" fill="#ff8fb3" />
+            </g>
+
+            <!-- inner towers L2 / R2 -->
+            <g>
+              <rect x="448" y="232" width="72" height="288" fill="url(#scWall)" stroke="#e0b463" stroke-width="2" />
+              <path d="M444,240 L484,140 L524,240 Z" fill="url(#scRoof)" stroke="#cf7aa6" stroke-width="2" />
+              <rect x="448" y="248" width="72" height="7" fill="url(#scGold)" opacity="0.9" />
+              <path d="M472,300 a12,12 0 0 1 24,0 L496,300 L496,270 a12,12 0 0 0 -24,0 L472,270 Z" fill="url(#scWin)" stroke="#e0b463" stroke-width="2" />
+              <circle cx="484" cy="358" r="8" fill="#fff0c4" stroke="#e0b463" stroke-width="2" opacity="0.9" />
+              <path d="M484 140 V118" stroke="#c78f2e" stroke-width="3" />
+              <path d="M484 118 L502 128 L484 138 Z" fill="#ff8fb3" />
+            </g>
+            <g>
+              <rect x="680" y="232" width="72" height="288" fill="url(#scWall)" stroke="#e0b463" stroke-width="2" />
+              <path d="M676,240 L716,140 L756,240 Z" fill="url(#scRoof)" stroke="#cf7aa6" stroke-width="2" />
+              <rect x="680" y="248" width="72" height="7" fill="url(#scGold)" opacity="0.9" />
+              <path d="M708,300 a12,12 0 0 1 24,0 L732,300 L732,270 a12,12 0 0 0 -24,0 L708,270 Z" fill="url(#scWin)" stroke="#e0b463" stroke-width="2" />
+              <circle cx="716" cy="358" r="8" fill="#fff0c4" stroke="#e0b463" stroke-width="2" opacity="0.9" />
+              <path d="M716 140 V118" stroke="#c78f2e" stroke-width="3" />
+              <path d="M716 118 L734 128 L716 138 Z" fill="#ff8fb3" />
+            </g>
+
+            <!-- connecting walls -->
+            <g fill="url(#scWallD)" stroke="#ddcaa2" stroke-width="1.5">
+              <rect x="420" y="348" width="28" height="172" />
+              <rect x="520" y="322" width="16" height="198" />
+              <rect x="664" y="322" width="16" height="198" />
+              <rect x="752" y="348" width="28" height="172" />
+            </g>
+            <g fill="url(#scWallD)" stroke="#ddcaa2" stroke-width="1.2">
+              <rect x="424" y="334" width="9" height="14" />
+              <rect x="436" y="334" width="9" height="14" />
+              <rect x="522" y="308" width="6" height="14" />
+              <rect x="528" y="308" width="6" height="14" />
+              <rect x="666" y="308" width="6" height="14" />
+              <rect x="672" y="308" width="6" height="14" />
+              <rect x="756" y="334" width="9" height="14" />
+              <rect x="768" y="334" width="9" height="14" />
+            </g>
+
+            <!-- central keep -->
+            <g>
+              <rect x="536" y="200" width="128" height="320" fill="url(#scWall)" stroke="#e0b463" stroke-width="2" />
+              <path d="M522,214 L600,54 L678,214 Z" fill="url(#scRoof)" stroke="#cf7aa6" stroke-width="2.5" />
+              <rect x="536" y="222" width="128" height="10" fill="url(#scGold)" opacity="0.95" />
+              <rect x="548" y="388" width="104" height="6" fill="url(#scGold)" opacity="0.75" />
+
+              <!-- rosace window -->
+              <circle cx="600" cy="278" r="17" fill="#fff2cd" stroke="#e0b463" stroke-width="3.5" />
+              <g fill="url(#scGold)">
+                <circle cx="600" cy="268" r="5" />
+                <circle cx="609" cy="276" r="5" />
+                <circle cx="600" cy="288" r="5" />
+                <circle cx="591" cy="276" r="5" />
+              </g>
+              <circle cx="600" cy="278" r="6" fill="#ffdf9e" stroke="#d9a440" stroke-width="2" />
+
+              <!-- big window -->
+              <path d="M580,340 L580,300 a20,20 0 0 1 40,0 L620,340 Z" fill="url(#scWin)" stroke="#e0b463" stroke-width="3" />
+              <path d="M600,348 L600,304" stroke="#d9a440" stroke-width="2" />
+              <path d="M586,318 L614,318" stroke="#d9a440" stroke-width="2" />
+
+              <!-- two small windows -->
+              <path d="M560,404 L560,386 a8,8 0 0 1 16,0 L576,404 Z" fill="url(#scWin)" stroke="#e0b463" stroke-width="2" />
+              <path d="M624,404 L624,386 a8,8 0 0 1 16,0 L640,404 Z" fill="url(#scWin)" stroke="#e0b463" stroke-width="2" />
+
+              <!-- balconies -->
+              <rect x="536" y="360" width="40" height="4" fill="#c78f2e" opacity="0.9" />
+              <g stroke="#c78f2e" stroke-width="1.4" opacity="0.9">
+                <line x1="540" y1="360" x2="540" y2="352" />
+                <line x1="552" y1="360" x2="552" y2="352" />
+                <line x1="564" y1="360" x2="564" y2="352" />
+                <line x1="572" y1="360" x2="572" y2="352" />
+              </g>
+              <rect x="624" y="360" width="40" height="4" fill="#c78f2e" opacity="0.9" />
+              <g stroke="#c78f2e" stroke-width="1.4" opacity="0.9">
+                <line x1="628" y1="360" x2="628" y2="352" />
+                <line x1="640" y1="360" x2="640" y2="352" />
+                <line x1="652" y1="360" x2="652" y2="352" />
+                <line x1="660" y1="360" x2="660" y2="352" />
+              </g>
+
+              <!-- golden pilasters -->
+              <rect x="540" y="230" width="4" height="290" fill="url(#scGold)" opacity="0.55" />
+              <rect x="656" y="230" width="4" height="290" fill="url(#scGold)" opacity="0.55" />
+
+              <!-- main gate -->
+              <path d="M568,520 L568,468 a32,32 0 0 1 64,0 L632,520 Z" fill="#8a3252" stroke="#e0b463" stroke-width="4" />
+              <circle cx="600" cy="480" r="20" fill="url(#scGate)" opacity="0.9" />
+              <path d="M600,452 L600,520" stroke="#d9a440" stroke-width="2" opacity="0.8" />
+              <path d="M584,470 C592,466 608,466 616,470" stroke="#d9a440" stroke-width="2" fill="none" opacity="0.7" />
+              <rect x="536" y="452" width="128" height="9" fill="url(#scGold)" opacity="0.95" />
+
+              <!-- central flag -->
+              <line x1="600" y1="54" x2="600" y2="22" stroke="#8a5a3b" stroke-width="4" />
+              <path d="M602,28 L666,46 L602,64 Z" fill="#ff8fb3" stroke="#e06a95" stroke-width="1.5" />
+              <circle cx="600" cy="20" r="4" fill="url(#scGold)" />
+
+              <!-- crown above gate -->
+              <use href="#crown" x="594" y="52" transform="scale(1.08) translate(-54,-3)" />
+            </g>
+          </g>
+
+          <!-- ============ GROUNDS & GARDEN ============ -->
+          <g class="ground">
+            <!-- lawn -->
+            <path d="M0,520 C190,472 400,472 600,486 C800,472 1010,472 1200,520 L1200,700 L0,700 Z" fill="#cfe8c0" />
+            <path d="M0,548 C210,508 420,504 600,514 C790,504 990,508 1200,548 L1200,700 L0,700 Z" fill="#9fca86" />
+
+            <!-- path from the gate -->
+            <path d="M600,520 C568,556 540,594 496,700 L704,700 C660,594 632,556 600,520 Z" fill="#edd9ad" />
+            <path d="M600,520 C566,558 538,600 528,700 L672,700 C662,600 634,558 600,520 Z" fill="#e6cd9e" opacity="0.6" />
+
+            <!-- flower beds along the castle -->
+            <g class="sway">
+              <use href="#leaf" x="300" y="532" transform="rotate(-20) translate(8,-2)" />
+              <use href="#leaf" x="300" y="532" transform="rotate(18) translate(-4,-6)" />
+              <use href="#rose" x="300" y="526" />
+              <use href="#rosebud" x="318" y="522" />
+              <use href="#leaf" x="360" y="530" transform="rotate(14) translate(-6,-4)" />
+              <use href="#rose" x="360" y="524" />
+              <use href="#rose" x="436" y="512" transform="scale(0.9)" />
+              <use href="#rosebud" x="450" y="508" />
+              <use href="#rose" x="486" y="512" />
+            </g>
+            <g class="sway s2">
+              <use href="#rose" x="540" y="512" />
+              <use href="#rosebud" x="560" y="508" />
+              <use href="#leaf" x="540" y="520" transform="rotate(-16) translate(8,-6)" />
+              <use href="#rose" x="640" y="512" />
+              <use href="#rose" x="660" y="510" />
+              <use href="#leaf" x="660" y="522" transform="rotate(16) translate(-8,-4)" />
+              <use href="#rose" x="700" y="514" />
+              <use href="#rosebud" x="712" y="510" />
+            </g>
+            <g class="sway s3">
+              <use href="#rose" x="760" y="524" />
+              <use href="#rosebud" x="778" y="520" />
+              <use href="#leaf" x="778" y="532" transform="rotate(-22) translate(6,-2)" />
+              <use href="#rose" x="840" y="528" />
+              <use href="#rose" x="858" y="524" />
+              <use href="#leaf" x="858" y="536" transform="rotate(20) translate(-8,-4)" />
+            </g>
+
+            <!-- scattered flowers on the lawn -->
+            <g class="sway">
+              <use href="#rose" x="150" y="610" transform="scale(1.15)" />
+              <use href="#rosebud" x="180" y="640" />
+              <use href="#rose" x="230" y="660" transform="scale(0.85)" />
+              <use href="#rose" x="980" y="600" transform="scale(1.1)" />
+              <use href="#rosebud" x="1010" y="630" />
+              <use href="#rose" x="1040" y="660" transform="scale(0.85)" />
+            </g>
+
+            <!-- blossom trees + bushes -->
+            <use href="#tree" x="128" y="606" />
+            <use href="#tree" x="1072" y="600" />
+            <use href="#bush" x="250" y="610" />
+            <use href="#bush" x="930" y="604" />
+            <use href="#bush" x="500" y="640" transform="scale(0.9)" />
+            <use href="#bush" x="700" y="642" transform="scale(0.9)" />
+
+            <!-- butterflies -->
+            <g class="bfly"><use href="#bf" x="480" y="470" /></g>
+            <g class="bfly b2"><use href="#bf2" x="720" y="455" /></g>
+            <g class="bfly"><use href="#bf" x="330" y="430" /></g>
+
+            <!-- rounded stones on the path -->
+            <g fill="#dcd0a8" opacity="0.9">
+              <ellipse cx="600" cy="540" rx="10" ry="5" />
+              <ellipse cx="580" cy="588" rx="12" ry="6" />
+              <ellipse cx="618" cy="636" rx="14" ry="7" />
+              <ellipse cx="596" cy="680" rx="16" ry="8" />
+            </g>
+          </g>
+        </svg>
+      </div>
+      <button class="open-hint" id="openHint" aria-label="Toca el castillo para abrir el cuento">Toca el castillo para abrir el cuento</button>
+    </div>
+
+    <!-- ============ SCENE 2 : STORYBOOK ============ -->
+    <div class="stage-book" id="bookStage">
+      <div class="book-glow" aria-hidden="true"></div>
+      <div class="shelf" aria-hidden="true"></div>
+
+      <div class="book-wrap" id="bookWrap">
+        <div class="book" id="book">
+          <!-- LEFT HALF : name page -->
+          <div class="half" id="halfL">
+            <div class="pg p-name">
+              <span class="pg-bd"></span>
+              <span class="cb"></span><span class="cb r"></span>
+              <div class="pg-inner">
+                <div class="crown-wrap">
+                  <svg viewBox="0 0 60 44" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="crGold" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#ffe9a8" />
+                        <stop offset="0.5" stop-color="#efc24f" />
+                        <stop offset="1" stop-color="#c78f2e" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M8 34 L6 14 L18 24 L30 6 L42 24 L54 14 L52 34 Z" fill="url(#crGold)" stroke="#c78f2e" stroke-width="1.6" />
+                    <rect x="4" y="34" width="52" height="8" rx="2.5" fill="url(#crGold)" stroke="#c78f2e" stroke-width="1.2" />
+                    <circle cx="30" cy="6" r="3.2" fill="#a13f66" />
+                    <circle cx="7" cy="15" r="2.6" fill="#a13f66" />
+                    <circle cx="53" cy="15" r="2.6" fill="#a13f66" />
+                    <path d="M18 10 l6 12 6 -12 3 8 -3 8 -9 -12 -3 -4 Z" fill="#fff" opacity="0.5" />
+                  </svg>
+                </div>
+                <h1 class="nm"><span class="danna">DANNA</span><span class="isabella">Isabella</span></h1>
+                <div class="rule-orn">❀</div>
+                <p class="age">2 AÑOS</p>
+                <div class="pr-row">
+                  <svg viewBox="0 0 40 90" aria-hidden="true">
+                    <use href="#pr" transform="translate(20,74) scale(0.9)" style="--hair:#2c2230;--bodice:#d13b4c;--dress:#3f6ac4;--dress2:#33579d;--bow:#d13b4c;" />
+                  </svg>
+                  <svg viewBox="0 0 40 90" aria-hidden="true">
+                    <use href="#pr" transform="translate(20,74) scale(0.9)" style="--hair:#7a4a2c;--bodice:#f2c14e;--dress:#e9c24e;--dress2:#c99d3a;--bow:#7a4a2c;" />
+                  </svg>
+                  <svg viewBox="0 0 40 90" aria-hidden="true">
+                    <use href="#pr" transform="translate(20,74) scale(0.9)" style="--hair:#e8c46a;--bodice:#f2a3c4;--dress:#f2a3c4;--dress2:#d985ad;--bow:#d985ad;" />
+                  </svg>
+                  <svg viewBox="0 0 40 90" aria-hidden="true">
+                    <use href="#pr" transform="translate(20,74) scale(0.9)" style="--hair:#e6b13c;--bodice:#7fb6e0;--dress:#8fc3e8;--dress2:#6fa8d4;--bow:#eef7ff;" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT HALF : revealed page after turn (decorative) -->
+          <div class="half" id="halfR">
+            <div class="pg p-deco-right">
+              <span class="pg-bd"></span>
+              <span class="cb"></span><span class="cb r"></span>
+              <div class="pg-inner">
+                <svg class="deco-art" viewBox="0 0 200 240" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="dGold" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#ffe9a8" />
+                      <stop offset="0.5" stop-color="#efc24f" />
+                      <stop offset="1" stop-color="#c78f2e" />
+                    </linearGradient>
+                  </defs>
+                  <g fill="none" stroke="url(#dGold)" stroke-width="2">
+                    <circle cx="100" cy="78" r="34" />
+                    <circle cx="100" cy="78" r="46" />
+                    <path d="M100 34 C110 60 120 66 100 78 C80 66 90 60 100 34 Z" />
+                    <path d="M100 122 C110 96 120 90 100 78 C80 90 90 96 100 122 Z" />
+                    <path d="M54 78 C80 68 86 58 100 78 C86 98 80 88 54 78 Z" />
+                    <path d="M146 78 C120 68 114 58 100 78 C114 98 120 88 146 78 Z" />
+                  </g>
+                  <circle cx="100" cy="78" r="9" fill="url(#dGold)" />
+                  <path d="M100 78 a6 6 0 0 1 6 6" stroke="#fff" stroke-width="2" fill="none" opacity="0.7" />
+                  <g fill="none" stroke="url(#dGold)" stroke-width="1.6">
+                    <path d="M54 150 C70 140 82 142 88 150 C96 160 88 170 74 172 C60 170 50 160 54 150 Z" />
+                    <path d="M146 150 C130 140 118 142 112 150 C104 160 112 170 126 172 C140 170 150 160 146 150 Z" />
+                  </g>
+                  <g fill="url(#dGold)">
+                    <path d="M100 188 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 Z" />
+                    <path d="M44 84 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 Z" opacity="0.85" />
+                    <path d="M156 84 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 Z" opacity="0.85" />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="gutter" aria-hidden="true"></div>
+          <div class="ribbon" aria-hidden="true"></div>
+
+          <!-- COVERS -->
+          <div class="cover" id="coverL" aria-hidden="true">
+            <span class="band t"></span><span class="band b"></span>
+            <div class="emb">
+              <svg viewBox="0 0 160 160" preserveAspectRatio="xMidYMid meet">
+                <ellipse cx="80" cy="80" rx="56" ry="70" fill="#123c30" stroke="#d9b96a" stroke-width="3.5" />
+                <ellipse cx="80" cy="80" rx="51" ry="65" fill="none" stroke="#e9cd8a" stroke-width="1.4" stroke-dasharray="3 3" />
+                <ellipse cx="80" cy="80" rx="47" ry="61" fill="none" stroke="#d9b96a" stroke-width="1" />
+                <g>
+                  <circle cx="80" cy="54" r="30" fill="#fff0bf" opacity="0.7" />
+                  <rect x="56" y="66" width="18" height="46" fill="#efcfdf" stroke="#b98a62" stroke-width="1.2" />
+                  <path d="M54 68 L65 46 L76 68 Z" fill="#c77fae" stroke="#b5637e" stroke-width="0.8" />
+                  <rect x="88" y="66" width="18" height="46" fill="#efcfdf" stroke="#b98a62" stroke-width="1.2" />
+                  <path d="M86 68 L97 46 L108 68 Z" fill="#c77fae" stroke="#b5637e" stroke-width="0.8" />
+                  <rect x="69" y="58" width="22" height="54" fill="#fff3e8" stroke="#b98a62" stroke-width="1.2" />
+                  <path d="M67 60 L80 38 L93 60 Z" fill="#c77fae" stroke="#b5637e" stroke-width="0.8" />
+                  <path d="M73,92 L73,84 a7,7 0 0 1 14,0 L87,92 Z" fill="#8a3252" stroke="#d9a440" stroke-width="1.2" />
+                  <circle cx="80" cy="86" r="4" fill="#ffd98a" />
+                  <rect x="92" y="70" width="9" height="12" rx="1" fill="#ffcf6b" />
+                  <path d="M62 108 C38 114 44 128 60 130 C50 124 52 116 62 116 C60 112 60 109 62 108 Z" fill="#7cbb84" opacity="0.85" />
+                  <path d="M98 108 C122 114 116 128 100 130 C110 124 108 116 98 116 C100 112 100 109 98 108 Z" fill="#7cbb84" opacity="0.85" />
+                  <g fill="#b7436e">
+                    <circle cx="61" cy="127" r="5" />
+                    <circle cx="70" cy="123" r="3.4" />
+                    <circle cx="99" cy="123" r="3.4" />
+                    <circle cx="107" cy="127" r="5" />
+                  </g>
+                </g>
+                <g>
+                  <circle cx="12" cy="12" r="13" fill="#0f2d22" stroke="#d9b96a" stroke-width="1.8" />
+                  <circle cx="148" cy="12" r="13" fill="#0f2d22" stroke="#d9b96a" stroke-width="1.8" />
+                  <circle cx="12" cy="148" r="13" fill="#0f2d22" stroke="#d9b96a" stroke-width="1.8" />
+                  <circle cx="148" cy="148" r="13" fill="#0f2d22" stroke="#d9b96a" stroke-width="1.8" />
+                  <use href="#prhead" transform="translate(12,12) scale(0.6) translate(0,-19)" style="--hair:#2c2230;" />
+                  <use href="#prhead" transform="translate(148,12) scale(0.6) translate(0,-19)" style="--hair:#7a4a2c;" />
+                  <use href="#prhead" transform="translate(12,148) scale(0.6) translate(0,-19)" style="--hair:#e8c46a;" />
+                  <use href="#prhead" transform="translate(148,148) scale(0.6) translate(0,-19)" style="--hair:#e6b13c;" />
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="cover" id="coverR" aria-hidden="true">
+            <span class="band t"></span><span class="band b"></span>
+            <div class="emb">
+              <svg viewBox="0 0 160 160" preserveAspectRatio="xMidYMid meet">
+                <ellipse cx="80" cy="80" rx="56" ry="70" fill="#123c30" stroke="#d9b96a" stroke-width="3.5" />
+                <ellipse cx="80" cy="80" rx="51" ry="65" fill="none" stroke="#e9cd8a" stroke-width="1.4" stroke-dasharray="3 3" />
+                <ellipse cx="80" cy="80" rx="47" ry="61" fill="none" stroke="#d9b96a" stroke-width="1" />
+                <g>
+                  <circle cx="80" cy="54" r="30" fill="#fff0bf" opacity="0.7" />
+                  <rect x="56" y="66" width="18" height="46" fill="#efcfdf" stroke="#b98a62" stroke-width="1.2" />
+                  <path d="M54 68 L65 46 L76 68 Z" fill="#c77fae" stroke="#b5637e" stroke-width="0.8" />
+                  <rect x="88" y="66" width="18" height="46" fill="#efcfdf" stroke="#b98a62" stroke-width="1.2" />
+                  <path d="M86 68 L97 46 L108 68 Z" fill="#c77fae" stroke="#b5637e" stroke-width="0.8" />
+                  <rect x="69" y="58" width="22" height="54" fill="#fff3e8" stroke="#b98a62" stroke-width="1.2" />
+                  <path d="M67 60 L80 38 L93 60 Z" fill="#c77fae" stroke="#b5637e" stroke-width="0.8" />
+                  <path d="M73,92 L73,84 a7,7 0 0 1 14,0 L87,92 Z" fill="#8a3252" stroke="#d9a440" stroke-width="1.2" />
+                  <circle cx="80" cy="86" r="4" fill="#ffd98a" />
+                  <rect x="92" y="70" width="9" height="12" rx="1" fill="#ffcf6b" />
+                  <path d="M62 108 C38 114 44 128 60 130 C50 124 52 116 62 116 C60 112 60 109 62 108 Z" fill="#7cbb84" opacity="0.85" />
+                  <path d="M98 108 C122 114 116 128 100 130 C110 124 108 116 98 116 C100 112 100 109 98 108 Z" fill="#7cbb84" opacity="0.85" />
+                  <g fill="#b7436e">
+                    <circle cx="61" cy="127" r="5" />
+                    <circle cx="70" cy="123" r="3.4" />
+                    <circle cx="99" cy="123" r="3.4" />
+                    <circle cx="107" cy="127" r="5" />
+                  </g>
+                </g>
+                <g>
+                  <circle cx="12" cy="12" r="13" fill="#0f2d22" stroke="#d9b96a" stroke-width="1.8" />
+                  <circle cx="148" cy="12" r="13" fill="#0f2d22" stroke="#d9b96a" stroke-width="1.8" />
+                  <circle cx="12" cy="148" r="13" fill="#0f2d22" stroke="#d9b96a" stroke-width="1.8" />
+                  <circle cx="148" cy="148" r="13" fill="#0f2d22" stroke="#d9b96a" stroke-width="1.8" />
+                  <use href="#prhead" transform="translate(12,12) scale(0.6) translate(0,-19)" style="--hair:#2c2230;" />
+                  <use href="#prhead" transform="translate(148,12) scale(0.6) translate(0,-19)" style="--hair:#7a4a2c;" />
+                  <use href="#prhead" transform="translate(12,148) scale(0.6) translate(0,-19)" style="--hair:#e8c46a;" />
+                  <use href="#prhead" transform="translate(148,148) scale(0.6) translate(0,-19)" style="--hair:#e6b13c;" />
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- FLIPPING SHEET : improved castle art front, rose decor back -->
+          <div class="flip" id="flip">
+            <div class="flip-inner" id="flipInner">
+              <div class="f-face f-front">
+                <div class="pg castle-art-wrap">
+                  <span class="pg-bd"></span>
+                  <span class="cb"></span><span class="cb r"></span>
+                  <svg class="art-defs" width="0" height="0" aria-hidden="true">
+                      <defs>
+                      <linearGradient id="pgSky" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#fdeee2" />
+                        <stop offset="0.62" stop-color="#f8d8e0" />
+                        <stop offset="1" stop-color="#f9cfcf" />
+                      </linearGradient>
+                      <linearGradient id="pgWall" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#fff3e8" />
+                        <stop offset="1" stop-color="#efcfdf" />
+                      </linearGradient>
+                      <linearGradient id="pgRoof" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#eaa0c2" />
+                        <stop offset="1" stop-color="#b56393" />
+                      </linearGradient>
+                      <linearGradient id="pgGold" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#ffe9a8" />
+                        <stop offset="0.5" stop-color="#efc24f" />
+                        <stop offset="1" stop-color="#c78f2e" />
+                      </linearGradient>
+                      <radialGradient id="pgWin" cx="0.5" cy="0.5" r="0.5">
+                        <stop offset="0" stop-color="#fff7d7" stop-opacity="0.95" />
+                        <stop offset="1" stop-color="#ffd36b" stop-opacity="0.8" />
+                      </radialGradient>
+
+                      <g id="pr">
+                        <path d="M-15,33 C-18,16 -9,3 0,3 C9,3 18,16 15,33 C15,26 11,20 0,20 C-11,20 -15,26 -15,33 Z" fill="var(--hair)" />
+                        <circle cx="0" cy="36" r="15" fill="#ffdcc4" />
+                        <path d="M-15,30 C-16,18 -10,12 0,12 C10,12 16,18 15,30 C11,22 5,19 0,20 C-5,19 -11,22 -15,30 Z" fill="var(--hair)" />
+                        <path d="M-15,30 C-19,34 -20,40 -17,42 C-18,38 -17,34 -15,33 Z" fill="var(--hair)" />
+                        <path d="M15,30 C19,34 20,40 17,42 C18,38 17,34 15,33 Z" fill="var(--hair)" />
+                        <path d="M-7,37 C-8.5,33 -3.5,33 -2.5,37" stroke="#4a3038" stroke-width="1.6" fill="none" stroke-linecap="round" />
+                        <path d="M2.5,37 C3.5,33 8.5,33 7,37" stroke="#4a3038" stroke-width="1.6" fill="none" stroke-linecap="round" />
+                        <circle cx="-10" cy="40" r="2.3" fill="#ff9a9a" opacity="0.5" />
+                        <circle cx="10" cy="40" r="2.3" fill="#ff9a9a" opacity="0.5" />
+                        <path d="M-2.2,42.5 Q0,45 2.2,42.5" stroke="#b0626e" stroke-width="1.3" fill="none" stroke-linecap="round" />
+                        <g transform="translate(0,4)">
+                          <path d="M-6.5,10 L-8,2.5 L-3.5,6.5 L0,0.5 L3.5,6.5 L8,2.5 L6.5,10 Z" fill="#f2cf86" stroke="#b07c28" stroke-width="1" />
+                          <rect x="-6.5" y="9.5" width="13" height="2.8" rx="1.2" fill="#e9b44c" stroke="#b07c28" stroke-width="0.8" />
+                          <circle cx="0" cy="1" r="1.4" fill="#a13f66" />
+                          <circle cx="-6" cy="4" r="1.2" fill="#a13f66" />
+                          <circle cx="6" cy="4" r="1.2" fill="#a13f66" />
+                        </g>
+                        <circle cx="-11.5" cy="52" r="3.4" fill="#ffdcc4" />
+                        <circle cx="11.5" cy="52" r="3.4" fill="#ffdcc4" />
+                        <path d="M-8.5,48 L8.5,48 L9.5,58 L-9.5,58 Z" fill="var(--bodice)" />
+                        <path d="M-5.5,48 Q0,53 5.5,48 L0,45.5 Z" fill="#fff" />
+                        <path d="M-11,57 L11,57 L15,72 L-15,72 Z" fill="var(--dress)" />
+                        <path d="M-15,72 C-5,68.5 5,68.5 15,72 Z" fill="var(--dress2)" />
+                        <path d="M0,58 L-4.5,55.5 L-4.5,60.5 Z M0,58 L4.5,55.5 L4.5,60.5 Z" fill="var(--bow)" />
+                        <circle cx="0" cy="58" r="1.8" fill="var(--bow)" />
+                        <circle cx="-5" cy="72" r="2.6" fill="#ffdcc4" />
+                        <circle cx="5" cy="72" r="2.6" fill="#ffdcc4" />
+                      </g>
+
+                      <g id="prhead">
+                        <path d="M-13,24 C-16,12 -8,2 0,2 C8,2 16,12 13,24 C13,19 9,14 0,15 C-9,14 -13,19 -13,24 Z" fill="var(--hair)" />
+                        <circle cx="0" cy="27" r="12" fill="#ffdcc4" />
+                        <path d="M-13,22 C-14,12 -9,7 0,7 C9,7 14,12 13,22 C10,15 4,12 0,13 C-4,12 -10,15 -13,22 Z" fill="var(--hair)" />
+                        <path d="M-7,29 C-8.5,25.4 -3.5,25.4 -2.5,29" stroke="#4a3038" stroke-width="1.4" fill="none" stroke-linecap="round" />
+                        <path d="M2.5,29 C3.5,25.4 8.5,25.4 7,29" stroke="#4a3038" stroke-width="1.4" fill="none" stroke-linecap="round" />
+                        <circle cx="-8.2" cy="31.5" r="1.9" fill="#ff9a9a" opacity="0.5" />
+                        <circle cx="8.2" cy="31.5" r="1.9" fill="#ff9a9a" opacity="0.5" />
+                        <path d="M-2,33.5 Q0,35.6 2,33.5" stroke="#b0626e" stroke-width="1.1" fill="none" stroke-linecap="round" />
+                        <g transform="translate(0,1.5)">
+                          <path d="M-5.6,8 L-7,2.2 L-3.2,5.6 L0,0.4 L3.2,5.6 L7,2.2 L5.6,8 Z" fill="#f2cf86" stroke="#b07c28" stroke-width="0.9" />
+                          <rect x="-5.6" y="7.8" width="11.2" height="2.4" rx="1" fill="#e9b44c" stroke="#b07c28" stroke-width="0.7" />
+                          <circle cx="0" cy="1" r="1.2" fill="#a13f66" />
+                        </g>
+                      </g>
+                    </defs>
+                      </svg>
+                      <img class="pg-full" src="pngdanna.png" alt="Danna Isabella" />
+                </div>
+              </div>
+              <div class="f-face f-back">
+                <div class="pg p-deco">
+                  <span class="pg-bd"></span>
+                  <span class="cb"></span><span class="cb r"></span>
+                  <div class="pg-inner">
+                    <img class="pg-img" src="Fondo de danna-isabella eliminado.png" alt="Danna Isabella" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flipShade" id="flipShade"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+<!-- ============ MAGIC SCROLL ============ -->
+      <div class="scroll" id="scroll">
+        <div class="roll t"></div>
+        <div class="roll b"></div>
+        <div class="scroll-body">
+          <svg class="scroll-orn tl" viewBox="0 0 60 60" aria-hidden="true">
+            <g fill="none" stroke="#c78f2e" stroke-width="1.6">
+              <path d="M4 22 C4 8 20 6 30 14 C30 30 14 30 6 34 C4 30 4 26 4 22 Z" />
+              <path d="M26 8 C40 4 56 12 54 22" />
+            </g>
+            <circle cx="28" cy="26" r="3.4" fill="#c74f7b" />
+            <circle cx="40" cy="12" r="2.2" fill="#f2a7c3" />
+            <circle cx="12" cy="16" r="2" fill="#f2a7c3" />
+          </svg>
+          <svg class="scroll-orn tr" viewBox="0 0 60 60" aria-hidden="true">
+            <g fill="none" stroke="#c78f2e" stroke-width="1.6">
+              <path d="M4 22 C4 8 20 6 30 14 C30 30 14 30 6 34 C4 30 4 26 4 22 Z" stroke-dasharray="0" />
+              <path d="M26 8 C40 4 56 12 54 22" />
+            </g>
+            <circle cx="28" cy="26" r="3.4" fill="#c74f7b" />
+            <circle cx="40" cy="12" r="2.2" fill="#f2a7c3" />
+            <circle cx="12" cy="16" r="2" fill="#f2a7c3" />
+          </svg>
+          <svg class="scroll-orn bl" viewBox="0 0 60 60" aria-hidden="true">
+            <path d="M10 52 C12 40 24 38 30 44 C30 40 36 38 44 40" fill="none" stroke="#c78f2e" stroke-width="1.6" />
+            <circle cx="22" cy="44" r="3.2" fill="#c74f7b" />
+          </svg>
+          <svg class="scroll-orn br" viewBox="0 0 60 60" aria-hidden="true">
+            <path d="M10 52 C12 40 24 38 30 44 C30 40 36 38 44 40" fill="none" stroke="#c78f2e" stroke-width="1.6" />
+            <circle cx="22" cy="44" r="3.2" fill="#c74f7b" />
+          </svg>
+
+          <div class="sc-item sc-1"><p class="sc-kick">— LA HISTORIA DE —</p></div>
+          <div class="sc-item sc-2"><p class="sc-name">Danna Isabella</p></div>
+          <div class="sc-item sc-3"><p class="sc-sub"><b>2 años</b></p></div>
+          <div class="sc-item sc-4"><p class="sc-date">10 OCTUBRE</p></div>
+          <div class="sc-item sc-45"><p class="sc-time">3:00 P.M.</p></div>
+          <div class="sc-item sc-5"><div class="sc-div">❀</div></div>
+          <div class="sc-item sc-6"><p class="sc-loc-kick">UBICACIÓN</p></div>
+          <div class="sc-item sc-7">
+            <a
+              class="maps-btn"
+              href="https://www.google.com/maps/search/?api=1&query=Calle+Gladiola+198%2C+Col.+Corrales+de+Engorda"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="pin">⌖</span> VER UBICACIÓN
+            </a>
+          </div>
+<div class="sc-item sc-8"><p class="sc-addr">Calle Gladiola #198 · Col. Corrales de Engorda</p></div>
+        </div>
+      </div>
+
+    <div class="mist" id="mist" aria-hidden="true"></div>
+    <div id="sparkles" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <button class="corner-btn" id="musicBtn" aria-label="Música">
+      <span class="note">♪</span>
+    </button>
+    <button class="corner-btn" id="replayBtn" aria-label="Ver de nuevo">&crarr;</button>
+
+    <script>
+      (function () {
+        'use strict';
+        var castleScene = document.getElementById('castleScene');
+        var castleInner = document.getElementById('castleInner');
+        var openHint = document.getElementById('openHint');
+        var mist = document.getElementById('mist');
+        var stageBook = document.getElementById('bookStage');
+        var book = document.getElementById('book');
+        var halfL = document.getElementById('halfL');
+        var halfR = document.getElementById('halfR');
+        var coverL = document.getElementById('coverL');
+        var coverR = document.getElementById('coverR');
+        var flip = document.getElementById('flip');
+        var flipInner = document.getElementById('flipInner');
+        var flipShade = document.getElementById('flipShade');
+        var scroll = document.getElementById('scroll');
+        var scItems = document.querySelectorAll('.sc-item');
+        var sparkles = document.getElementById('sparkles');
+        var musicBtn = document.getElementById('musicBtn');
+        var replayBtn = document.getElementById('replayBtn');
+
+        /* ---------- music ---------- */
+        var audio = new Audio('cancion.mp3');
+        audio.loop = true;
+        audio.preload = 'auto';
+        audio.volume = 0;
+        var musicStarted = false;
+        function tuneStartPoint() {
+          try { if (audio.duration && audio.duration > 55) audio.currentTime = 50; } catch (e) {}
+        }
+        audio.addEventListener('loadedmetadata', tuneStartPoint);
+        function rampIn() {
+          var t0 = performance.now();
+          (function tick(t) {
+            var p = Math.min(1, (t - t0) / 3400);
+            audio.volume = p * 0.82;
+            if (p < 1) requestAnimationFrame(tick);
+          })(performance.now());
+        }
+        function startMusic() {
+          if (musicStarted) return;
+          musicStarted = true;
+          tuneStartPoint();
+          musicBtn.classList.add('playing');
+          audio.play().then(rampIn).catch(function () {
+            /* autoplay may need a gesture */
+            musicStarted = false;
+          });
+        }
+        function stopMusic() {
+          audio.pause();
+        }
+        musicBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          if (audio.paused) {
+            if (!musicStarted) { startMusic(); }
+            else { audio.play().catch(function () {}); rampIn(); }
+            musicBtn.classList.add('playing');
+          } else {
+            audio.pause();
+            musicBtn.classList.remove('playing');
+          }
+        });
+        function unlockMusic() {
+          if (!musicStarted) { try { startMusic(); } catch (e) {} }
+        }
+        document.addEventListener('click', unlockMusic, { once: true });
+        document.addEventListener('touchstart', unlockMusic, { once: true });
+        document.addEventListener('keydown', unlockMusic, { once: true });
+        replayBtn.addEventListener('click', function () {
+          sparkles.innerHTML = '';
+          dust(30); fireflies();
+          try { audio.pause(); } catch (e) {}
+          musicStarted = false;
+          musicBtn.classList.remove('playing');
+          timeline();
+        });
+
+        /* ---------- helpers ---------- */
+        function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+        function drive(dur, ease, step, done) {
+          return new Promise(function (res) {
+            var t0 = performance.now();
+            function tick(t) {
+              var p = Math.min(1, (t - t0) / dur);
+              step(ease(p));
+              if (p < 1) requestAnimationFrame(tick);
+              else { if (done) done(); res(); }
+            }
+            requestAnimationFrame(tick);
+          });
+        }
+        var eOut = function (p) { return 1 - Math.pow(1 - p, 3); };
+        var eInOut = function (p) { return p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; };
+        var eInOutSine = function (p) { return -(Math.cos(Math.PI * p) - 1) / 2; };
+
+        /* ---------- castle click to open ---------- */
+        var openResolve = null;
+        function hintTap() {
+          if (openResolve) { var r = openResolve; openResolve = null; r(); }
+        }
+        openHint.addEventListener('click', hintTap);
+        castleScene.addEventListener('click', hintTap);
+        function waitForOpen() {
+          return new Promise(function (res) { openResolve = res; });
+        }
+
+        /* ---------- particles ---------- */
+        function dust(n) {
+          for (var i = 0; i < (n || 34); i++) {
+            (function () {
+              var s = document.createElement('span');
+              s.className = 'dust';
+              var size = 3 + Math.random() * 7;
+              s.style.width = size + 'px';
+              s.style.height = size + 'px';
+              s.style.left = (2 + Math.random() * 96) + '%';
+              s.style.top = (4 + Math.random() * 88) + '%';
+              s.style.animationDelay = (Math.random() * 6) + 's';
+              s.style.animationDuration = (6 + Math.random() * 6) + 's';
+              sparkles.appendChild(s);
+            })();
+          }
+        }
+        function fireflies() {
+          for (var i = 0; i < 8; i++) {
+            (function () {
+              var s = document.createElement('span');
+              s.className = 'firefly';
+              s.style.left = (8 + Math.random() * 84) + '%';
+              s.style.top = (30 + Math.random() * 55) + '%';
+              s.style.animationDelay = (Math.random() * 10) + 's';
+              s.style.animationDuration = (8 + Math.random() * 6) + 's';
+              sparkles.appendChild(s);
+            })();
+          }
+        }
+        function burst(cx, cy, count) {
+          for (var i = 0; i < (count || 20); i++) {
+            (function () {
+              var s = document.createElement('span');
+              s.className = 'burst';
+              var a = Math.random() * Math.PI * 2;
+              var d = 40 + Math.random() * 140;
+              s.style.setProperty('--tx', (Math.cos(a) * d) + 'px');
+              s.style.setProperty('--ty', (Math.sin(a) * d) + 'px');
+              s.style.width = s.style.height = (4 + Math.random() * 6) + 'px';
+              s.style.left = (cx || 50) + '%';
+              s.style.top = (cy || 50) + '%';
+              s.style.animationDelay = (Math.random() * 0.35) + 's';
+              sparkles.appendChild(s);
+              setTimeout(function () { s.remove(); }, 2400);
+            })();
+          }
+        }
+
+        /* ---------- reset state ---------- */
+        function reset() {
+          castleScene.style.opacity = '1';
+          castleScene.style.visibility = 'visible';
+          castleInner.style.transform = 'scale(1) translateY(0)';
+          castleInner.style.filter = 'blur(0px)';
+          openHint.classList.remove('on');
+          openHint.style.visibility = 'visible';
+          mist.classList.remove('on');
+          stageBook.classList.remove('on');
+          book.classList.remove('floaty');
+          halfL.style.transform = 'scaleX(0.14)';
+          halfR.style.transform = 'scaleX(0.14)';
+          coverL.style.transform = 'scaleX(1)';
+          coverR.style.transform = 'scaleX(1)';
+          coverL.style.opacity = '1';
+          coverR.style.opacity = '1';
+          halfL.querySelector('.pg-inner').style.opacity = '0';
+          halfR.querySelector('.pg-inner').style.opacity = '0';
+          flipInner.style.transform = 'rotateY(0deg) rotateX(0deg)';
+          flip.style.opacity = '0';
+          flip.style.transform = 'translateY(0)';
+          flipShade.style.opacity = '0';
+          scroll.style.opacity = '0';
+          scroll.style.transform = 'translate(-50%, -50%) translateY(46px) scaleY(0.3) rotate(-2deg)';
+          for (var i = 0; i < scItems.length; i++) scItems[i].classList.remove('on');
+          musicBtn.classList.remove('on');
+          replayBtn.classList.remove('on');
+        }
+
+        /* ---------- timeline ---------- */
+        async function timeline() {
+          reset();
+          openHint.classList.add('on');
+          musicBtn.classList.add('on');
+          startMusic();
+
+          await wait(120);
+
+          /* soft entrance of the castle */
+          castleScene.style.opacity = '0';
+          castleScene.style.transition = 'none';
+          await wait(30);
+          castleScene.style.transition = '';
+          castleScene.style.opacity = '1';
+          await drive(1200, eOut, function (p) {
+            castleInner.style.transform = 'scale(' + (1.06 - 0.05 * p) + ') translateY(-14px)';
+            castleInner.style.filter = 'blur(' + (8 * (1 - p)) + 'px)';
+          });
+          await wait(500);
+
+          /* gentle dreamy camera move */
+          await drive(2600, eInOutSine, function (p) {
+            castleInner.style.transform = 'scale(' + (1.01 + 0.12 * p) + ') translateY(' + (-24 * p) + 'px)';
+          });
+          await wait(500);
+          burst(50, 38, 20);
+
+          /* wait for the castle to be touched, then unravel the scroll */
+          await waitForOpen();
+          openHint.classList.remove('on');
+          burst(50, 56, 22);
+
+          /* magic transition: dim the castle */
+          mist.classList.add('on');
+          await wait(480);
+          await Promise.all([
+            drive(950, eInOut, function (p) {
+              castleScene.style.opacity = String(0.15 + 0.85 * (1 - p));
+              castleInner.style.transform = 'scale(' + (1.13 + 0.16 * p) + ') translateY(-30px)';
+              castleInner.style.filter = 'blur(' + (7 * p) + 'px)';
+            }),
+            (async function () {
+              await wait(300);
+              musicBtn.classList.add('on');
+              startMusic();
+            })()
+          ]);
+          await drive(700, eInOut, function (p) { mist.style.opacity = String(1 - p); });
+          mist.classList.remove('on');
+          mist.style.opacity = '';
+          castleInner.style.transform = '';
+          castleInner.style.filter = '';
+          await wait(260);
+          burst(50, 46, 20);
+
+          /* the parchment unrolls over the castle */
+          scroll.style.visibility = 'visible';
+          await drive(1150, function (p) { return 1 - Math.pow(1 - p, 3); }, function (p) {
+            scroll.style.opacity = String(p);
+            scroll.style.transform =
+              'translate(-50%, -50%) translateY(' + (34 * (1 - p)) + 'px) scaleY(' + (0.32 + 0.68 * p) + ') rotate(-1.6deg)';
+          });
+          await wait(160);
+          for (var i = 0; i < scItems.length; i++) {
+            await wait(130);
+            scItems[i].classList.add('on');
+          }
+          burst(50, 50, 30);
+          burst(30, 66, 14);
+          burst(70, 34, 14);
+          await wait(800);
+          musicBtn.classList.add('on');
+          replayBtn.classList.add('on');
+        }
+        /* ---------- slight extra style for scroll so it sits above pages ---------- */
+        scroll.style.visibility = 'hidden';
+
+        dust(34);
+        fireflies();
+        timeline();
+      })();
+    </script>
+  </body>
+</html>
